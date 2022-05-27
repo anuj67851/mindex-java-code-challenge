@@ -43,7 +43,9 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
         return new ReportingStructure(initializedEmployee, countDirectReports(initializedEmployee));
     }
 
-    // Method to recursively initialize all the direct reports of each employee in the list
+    /**
+     * Method that recursively initialized the employees in the direct reports to create an employee tree
+     **/
     private Employee initializeEmployeeDirectReports(Employee employee) {
         if (employee.getDirectReports() != null) {
             // For each employee, fetch its corresponding entry from employee repo and create a list
@@ -59,7 +61,9 @@ public class ReportingStructureServiceImpl implements ReportingStructureService 
         return employee;
     }
 
-    // Count the number of distinct employees that fall under current employee
+    /**
+     * Method that counts the number of distinct employees under current employee
+     **/
     private int countDirectReports(Employee employee){
         // List that contains all the reachable employees
         List<Employee> employeeList = new ArrayList<>();
